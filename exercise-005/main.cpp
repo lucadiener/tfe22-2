@@ -21,7 +21,7 @@ class Person
     {
         return m_tel;
     }
-    void info()
+    virtual void info()
     {
         fmt::println("Name: {}",m_name);
         fmt::println(" Adresse: {}",m_adr);
@@ -44,11 +44,21 @@ class Kunde : public Person
     {
         return m_kundenNummer;
     }
-
+    void info()
+    {
+        fmt::println("Name         : {}",getName());
+        fmt::println(" Adresse     : {}",getAdr());
+        fmt::println(" Telefon     : {}",getTel());
+        fmt::println(" Kundennummer: {}",m_kundenNummer);
+    }
    private:
     std::string m_kundenNummer;
 };
 
+void personPrinter(Person& pers) {
+    fmt::println("------------------");
+    pers.info();
+} 
 auto main(int argc, char **argv) -> int
 {
     /**
@@ -59,7 +69,13 @@ auto main(int argc, char **argv) -> int
     fmt::print("Hello, {}!\n", "World");
     Person p("Hugo","Entenhausen","1234");
     Kunde k("Petra","Freiburg","0815","4711");
-    
+
+    p.info();
+    k.info();
+    fmt::println("Kundennummer: {}",k.getKundenNummer());
+    //fmt::println("Kundennummer: {}",p.getKundenNummer());
+    personPrinter(p);
+    personPrinter(k);
     /* INSERT YOUR CODE HERE */
 
     return 0; /* exit gracefully*/
