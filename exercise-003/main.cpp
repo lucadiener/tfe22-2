@@ -25,5 +25,9 @@ auto main(int argc, char **argv) -> int
     data.print_vector();
     data.at(0);
     data.size();
+    
+    VectorInt data3(99);
+    data3 = data2;
+    data3.print_vector();
     return 0; /* exit gracefully*/
 }

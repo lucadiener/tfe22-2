@@ -53,3 +53,8 @@ void VectorInt::clear()
     mp_Data = nullptr;
     m_size = 0;
 }
+VectorInt& VectorInt::operator = (const VectorInt& src)
+{
+    VectorInt(5) = src.m_size;
+    return *this;
+}

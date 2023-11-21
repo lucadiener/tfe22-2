@@ -4,6 +4,7 @@
 class VectorInt {
 public:
     VectorInt(int size);
+    VectorInt(const VectorInt& src);
     ~VectorInt();
 
     void at(int value);
@@ -12,6 +13,7 @@ public:
     void push_back(int value);
     void clear();
     void print_vector();
+    VectorInt& operator = (const VectorInt& vec_neu);
 private:
     int m_size;
     int* mp_Data;
